@@ -1,5 +1,5 @@
 name: google_taskqueue_v1beta2_api
-version: 0.1.5
+version: 0.1.6
 description: Auto-generated client library for accessing the taskqueue v1beta2 API
 homepage: https://github.com/dart-gde/discovery_api_dart_client_generator
 authors:
