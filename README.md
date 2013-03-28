@@ -8,7 +8,7 @@ Auto-generated client library for accessing the taskqueue v1beta2 API.
 
 Lets you access a Google App Engine Pull Task Queue over REST.
 
-Official API documentation: http://code.google.com/appengine/docs/python/taskqueue/rest.html
+Official API documentation: https://developers.google.com/appengine/docs/python/taskqueue/rest
 
 For web applications:
 ```

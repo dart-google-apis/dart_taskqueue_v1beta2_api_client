@@ -20,6 +20,9 @@ class Task {
   /** Name of the queue that the task is in. */
   String queueName;
 
+  /** The number of leases applied to this task. */
+  int retry_count;
+
   /** Tag for the task, could be used later to lease tasks grouped by a specific tag. */
   String tag;
 
@@ -42,6 +45,9 @@ class Task {
     }
     if (json.containsKey("queueName")) {
       queueName = json["queueName"];
+    }
+    if (json.containsKey("retry_count")) {
+      retry_count = json["retry_count"];
     }
     if (json.containsKey("tag")) {
       tag = json["tag"];
@@ -69,6 +75,9 @@ class Task {
     }
     if (queueName != null) {
       output["queueName"] = queueName;
+    }
+    if (retry_count != null) {
+      output["retry_count"] = retry_count;
     }
     if (tag != null) {
       output["tag"] = tag;
