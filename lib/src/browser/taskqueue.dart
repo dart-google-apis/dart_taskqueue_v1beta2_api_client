@@ -4,10 +4,10 @@ part of taskqueue_v1beta2_api_browser;
 /** Lets you access a Google App Engine Pull Task Queue over REST. */
 class Taskqueue extends BrowserClient {
 
-  TaskqueuesResource _taskqueues;
-  TaskqueuesResource get taskqueues => _taskqueues;
-  TasksResource _tasks;
-  TasksResource get tasks => _tasks;
+  TaskqueuesResource_ _taskqueues;
+  TaskqueuesResource_ get taskqueues => _taskqueues;
+  TasksResource_ _tasks;
+  TasksResource_ get tasks => _tasks;
 
   /** OAuth Scope2: Manage your Tasks and Taskqueues */
   static const core.String TASKQUEUE_SCOPE = "https://www.googleapis.com/auth/taskqueue";
@@ -67,7 +67,7 @@ class Taskqueue extends BrowserClient {
   Taskqueue([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/taskqueue/v1beta2/projects/";
     rootUrl = "https://www.googleapis.com:443/";
-    _taskqueues = new TaskqueuesResource(this);
-    _tasks = new TasksResource(this);
+    _taskqueues = new TaskqueuesResource_(this);
+    _tasks = new TasksResource_(this);
   }
 }
