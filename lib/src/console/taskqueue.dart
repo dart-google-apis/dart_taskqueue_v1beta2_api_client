@@ -66,7 +66,7 @@ class Taskqueue extends ConsoleClient {
 
   Taskqueue([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/taskqueue/v1beta2/projects/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _taskqueues = new TaskqueuesResource_(this);
     _tasks = new TasksResource_(this);
   }

@@ -3,7 +3,7 @@ part of taskqueue_v1beta2_api_client;
 class Task {
 
   /** Time (in seconds since the epoch) at which the task was enqueued. */
-  core.String enqueueTimestamp;
+  core.int enqueueTimestamp;
 
   /** Name of the task. */
   core.String id;
@@ -12,7 +12,7 @@ class Task {
   core.String kind;
 
   /** Time (in seconds since the epoch) at which the task lease will expire. This value is 0 if the task isnt currently leased out to a worker. */
-  core.String leaseTimestamp;
+  core.int leaseTimestamp;
 
   /** A bag of bytes which is the task payload. The payload on the JSON side is always Base64 encoded. */
   core.String payloadBase64;
@@ -224,13 +224,13 @@ class TaskQueueAcl {
 class TaskQueueStats {
 
   /** Number of tasks leased in the last hour. */
-  core.String leasedLastHour;
+  core.int leasedLastHour;
 
   /** Number of tasks leased in the last minute. */
-  core.String leasedLastMinute;
+  core.int leasedLastMinute;
 
   /** The timestamp (in seconds since the epoch) of the oldest unfinished task. */
-  core.String oldestTask;
+  core.int oldestTask;
 
   /** Number of tasks in the queue. */
   core.int totalTasks;
