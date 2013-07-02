@@ -17,7 +17,6 @@ class TaskqueuesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<TaskQueue> get(core.String project, core.String taskqueue, {core.bool getStats, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -37,16 +36,13 @@ class TaskqueuesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new TaskQueue.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new TaskQueue.fromJson(data));
   }
 }
 
@@ -67,7 +63,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<core.Map> delete(core.String project, core.String taskqueue, core.String task, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks/{task}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -88,16 +83,12 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "DELETE", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(data))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response;
   }
 
   /**
@@ -112,7 +103,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Task> get(core.String project, core.String taskqueue, core.String task, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks/{task}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -133,16 +123,13 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Task.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Task.fromJson(data));
   }
 
   /**
@@ -157,7 +144,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Task> insert(Task request, core.String project, core.String taskqueue, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -176,16 +162,13 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Task.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Task.fromJson(data));
   }
 
   /**
@@ -206,7 +189,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Tasks> lease(core.String project, core.String taskqueue, core.int numTasks, core.int leaseSecs, {core.bool groupByTag, core.String tag, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks/lease";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -231,16 +213,13 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Tasks.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Tasks.fromJson(data));
   }
 
   /**
@@ -253,7 +232,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Tasks2> list(core.String project, core.String taskqueue, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -272,16 +250,13 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Tasks2.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Tasks2.fromJson(data));
   }
 
   /**
@@ -300,7 +275,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Task> patch(Task request, core.String project, core.String taskqueue, core.String task, core.int newLeaseSeconds, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks/{task}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -323,16 +297,13 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "PATCH", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Task.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Task.fromJson(data));
   }
 
   /**
@@ -351,7 +322,6 @@ class TasksResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Task> update(Task request, core.String project, core.String taskqueue, core.String task, core.int newLeaseSeconds, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "{project}/taskqueues/{taskqueue}/tasks/{task}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -374,16 +344,13 @@ class TasksResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Task.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Task.fromJson(data));
   }
 }
 

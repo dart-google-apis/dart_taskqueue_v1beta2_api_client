@@ -29,7 +29,11 @@ class Task {
   /** Create new Task from JSON data */
   Task.fromJson(core.Map json) {
     if (json.containsKey("enqueueTimestamp")) {
-      enqueueTimestamp = json["enqueueTimestamp"];
+      if(json["enqueueTimestamp"] is core.String){
+        enqueueTimestamp = core.int.parse(json["enqueueTimestamp"]);
+      }else{
+        enqueueTimestamp = json["enqueueTimestamp"];
+      }
     }
     if (json.containsKey("id")) {
       id = json["id"];
@@ -38,7 +42,11 @@ class Task {
       kind = json["kind"];
     }
     if (json.containsKey("leaseTimestamp")) {
-      leaseTimestamp = json["leaseTimestamp"];
+      if(json["leaseTimestamp"] is core.String){
+        leaseTimestamp = core.int.parse(json["leaseTimestamp"]);
+      }else{
+        leaseTimestamp = json["leaseTimestamp"];
+      }
     }
     if (json.containsKey("payloadBase64")) {
       payloadBase64 = json["payloadBase64"];
@@ -238,13 +246,25 @@ class TaskQueueStats {
   /** Create new TaskQueueStats from JSON data */
   TaskQueueStats.fromJson(core.Map json) {
     if (json.containsKey("leasedLastHour")) {
-      leasedLastHour = json["leasedLastHour"];
+      if(json["leasedLastHour"] is core.String){
+        leasedLastHour = core.int.parse(json["leasedLastHour"]);
+      }else{
+        leasedLastHour = json["leasedLastHour"];
+      }
     }
     if (json.containsKey("leasedLastMinute")) {
-      leasedLastMinute = json["leasedLastMinute"];
+      if(json["leasedLastMinute"] is core.String){
+        leasedLastMinute = core.int.parse(json["leasedLastMinute"]);
+      }else{
+        leasedLastMinute = json["leasedLastMinute"];
+      }
     }
     if (json.containsKey("oldestTask")) {
-      oldestTask = json["oldestTask"];
+      if(json["oldestTask"] is core.String){
+        oldestTask = core.int.parse(json["oldestTask"]);
+      }else{
+        oldestTask = json["oldestTask"];
+      }
     }
     if (json.containsKey("totalTasks")) {
       totalTasks = json["totalTasks"];
