@@ -1,14 +1,21 @@
-library taskqueue_v1beta2_api_console;
+library taskqueue_v1beta2_api.console;
 
-import "taskqueue_v1beta2_api_client.dart";
-export "taskqueue_v1beta2_api_client.dart";
-
-import "dart:core" as core;
-import "dart:io" as io;
-import "dart:async" as async;
-import "dart:json" as JSON;
-import "package:http/http.dart" as http;
 import "package:google_oauth2_client/google_oauth2_console.dart" as oauth2;
 
-part "src/console/console_client.dart";
-part "src/console/taskqueue.dart";
+import 'package:google_taskqueue_v1beta2_api/src/cloud_api_console.dart';
+
+import "package:google_taskqueue_v1beta2_api/taskqueue_v1beta2_api_client.dart";
+
+/** Lets you access a Google App Engine Pull Task Queue over REST. */
+class Taskqueue extends Client with ConsoleClient {
+
+  /** OAuth Scope2: Manage your Tasks and Taskqueues */
+  static const String TASKQUEUE_SCOPE = "https://www.googleapis.com/auth/taskqueue";
+
+  /** OAuth Scope2: Consume Tasks from your Taskqueues */
+  static const String TASKQUEUE_CONSUMER_SCOPE = "https://www.googleapis.com/auth/taskqueue.consumer";
+
+  final oauth2.OAuth2Console auth;
+
+  Taskqueue([oauth2.OAuth2Console this.auth]);
+}

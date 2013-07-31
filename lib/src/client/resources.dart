@@ -1,9 +1,11 @@
-part of taskqueue_v1beta2_api_client;
+part of taskqueue_v1beta2_api;
 
-class TaskqueuesResource_ extends Resource {
+class TaskqueuesResource_ {
 
-  TaskqueuesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  TaskqueuesResource_(Client client) :
+      _client = client;
 
   /**
    * Get detailed information about a TaskQueue.
@@ -46,10 +48,12 @@ class TaskqueuesResource_ extends Resource {
   }
 }
 
-class TasksResource_ extends Resource {
+class TasksResource_ {
 
-  TasksResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  TasksResource_(Client client) :
+      _client = client;
 
   /**
    * Delete a task from a TaskQueue.

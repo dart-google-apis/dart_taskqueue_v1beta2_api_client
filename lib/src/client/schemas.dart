@@ -1,4 +1,4 @@
-part of taskqueue_v1beta2_api_client;
+part of taskqueue_v1beta2_api;
 
 class Task {
 
@@ -29,11 +29,7 @@ class Task {
   /** Create new Task from JSON data */
   Task.fromJson(core.Map json) {
     if (json.containsKey("enqueueTimestamp")) {
-      if(json["enqueueTimestamp"] is core.String){
-        enqueueTimestamp = core.int.parse(json["enqueueTimestamp"]);
-      }else{
-        enqueueTimestamp = json["enqueueTimestamp"];
-      }
+      enqueueTimestamp = (json["enqueueTimestamp"] is core.String) ? core.int.parse(json["enqueueTimestamp"]) : json["enqueueTimestamp"];
     }
     if (json.containsKey("id")) {
       id = json["id"];
@@ -42,11 +38,7 @@ class Task {
       kind = json["kind"];
     }
     if (json.containsKey("leaseTimestamp")) {
-      if(json["leaseTimestamp"] is core.String){
-        leaseTimestamp = core.int.parse(json["leaseTimestamp"]);
-      }else{
-        leaseTimestamp = json["leaseTimestamp"];
-      }
+      leaseTimestamp = (json["leaseTimestamp"] is core.String) ? core.int.parse(json["leaseTimestamp"]) : json["leaseTimestamp"];
     }
     if (json.containsKey("payloadBase64")) {
       payloadBase64 = json["payloadBase64"];
@@ -178,22 +170,13 @@ class TaskQueueAcl {
   /** Create new TaskQueueAcl from JSON data */
   TaskQueueAcl.fromJson(core.Map json) {
     if (json.containsKey("adminEmails")) {
-      adminEmails = [];
-      json["adminEmails"].forEach((item) {
-        adminEmails.add(item);
-      });
+      adminEmails = json["adminEmails"].toList();
     }
     if (json.containsKey("consumerEmails")) {
-      consumerEmails = [];
-      json["consumerEmails"].forEach((item) {
-        consumerEmails.add(item);
-      });
+      consumerEmails = json["consumerEmails"].toList();
     }
     if (json.containsKey("producerEmails")) {
-      producerEmails = [];
-      json["producerEmails"].forEach((item) {
-        producerEmails.add(item);
-      });
+      producerEmails = json["producerEmails"].toList();
     }
   }
 
@@ -202,22 +185,13 @@ class TaskQueueAcl {
     var output = new core.Map();
 
     if (adminEmails != null) {
-      output["adminEmails"] = new core.List();
-      adminEmails.forEach((item) {
-        output["adminEmails"].add(item);
-      });
+      output["adminEmails"] = adminEmails.toList();
     }
     if (consumerEmails != null) {
-      output["consumerEmails"] = new core.List();
-      consumerEmails.forEach((item) {
-        output["consumerEmails"].add(item);
-      });
+      output["consumerEmails"] = consumerEmails.toList();
     }
     if (producerEmails != null) {
-      output["producerEmails"] = new core.List();
-      producerEmails.forEach((item) {
-        output["producerEmails"].add(item);
-      });
+      output["producerEmails"] = producerEmails.toList();
     }
 
     return output;
@@ -246,25 +220,13 @@ class TaskQueueStats {
   /** Create new TaskQueueStats from JSON data */
   TaskQueueStats.fromJson(core.Map json) {
     if (json.containsKey("leasedLastHour")) {
-      if(json["leasedLastHour"] is core.String){
-        leasedLastHour = core.int.parse(json["leasedLastHour"]);
-      }else{
-        leasedLastHour = json["leasedLastHour"];
-      }
+      leasedLastHour = (json["leasedLastHour"] is core.String) ? core.int.parse(json["leasedLastHour"]) : json["leasedLastHour"];
     }
     if (json.containsKey("leasedLastMinute")) {
-      if(json["leasedLastMinute"] is core.String){
-        leasedLastMinute = core.int.parse(json["leasedLastMinute"]);
-      }else{
-        leasedLastMinute = json["leasedLastMinute"];
-      }
+      leasedLastMinute = (json["leasedLastMinute"] is core.String) ? core.int.parse(json["leasedLastMinute"]) : json["leasedLastMinute"];
     }
     if (json.containsKey("oldestTask")) {
-      if(json["oldestTask"] is core.String){
-        oldestTask = core.int.parse(json["oldestTask"]);
-      }else{
-        oldestTask = json["oldestTask"];
-      }
+      oldestTask = (json["oldestTask"] is core.String) ? core.int.parse(json["oldestTask"]) : json["oldestTask"];
     }
     if (json.containsKey("totalTasks")) {
       totalTasks = json["totalTasks"];
@@ -307,10 +269,7 @@ class Tasks {
   /** Create new Tasks from JSON data */
   Tasks.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Task.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Task.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -322,10 +281,7 @@ class Tasks {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -350,10 +306,7 @@ class Tasks2 {
   /** Create new Tasks2 from JSON data */
   Tasks2.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Task.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Task.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -365,10 +318,7 @@ class Tasks2 {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -382,3 +332,16 @@ class Tasks2 {
 
 }
 
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
+}
