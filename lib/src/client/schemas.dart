@@ -87,7 +87,7 @@ class Task {
   }
 
   /** Return String representation of Task */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -151,7 +151,7 @@ class TaskQueue {
   }
 
   /** Return String representation of TaskQueue */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -198,7 +198,7 @@ class TaskQueueAcl {
   }
 
   /** Return String representation of TaskQueueAcl */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -254,7 +254,7 @@ class TaskQueueStats {
   }
 
   /** Return String representation of TaskQueueStats */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -291,7 +291,7 @@ class Tasks {
   }
 
   /** Return String representation of Tasks */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -328,7 +328,7 @@ class Tasks2 {
   }
 
   /** Return String representation of Tasks2 */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
