@@ -14,7 +14,7 @@ Adding dependency to pubspec.yaml
 
 ```
   dependencies:
-    google_taskqueue_v1beta2_api: '>=0.4.9'
+    google_taskqueue_v1beta2_api: '>=0.4.10'
 ```
 
 For web applications:
