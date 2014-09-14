@@ -7,6 +7,7 @@ import 'package:google_taskqueue_v1beta2_api/src/console_client.dart';
 import "package:google_taskqueue_v1beta2_api/taskqueue_v1beta2_api_client.dart";
 
 /** Lets you access a Google App Engine Pull Task Queue over REST. */
+@deprecated
 class Taskqueue extends Client with ConsoleClient {
 
   /** OAuth Scope2: Manage your Tasks and Taskqueues */
